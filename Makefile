@@ -1,13 +1,13 @@
 .PHONY: all compile get-deps generate_tgz clean
 
-PKG_NAME = host_health
+PKG_NAME = perf_worker
 
 all:
 
 generate_tgz:
 	mkdir -p pkgroot/${PKG_NAME}
 	cp src/*.py pkgroot/${PKG_NAME}/
-	
+
 	cd pkgroot && tar czf ../${PKG_NAME}.tgz ./${PKG_NAME} && cd ..
 	rm -rf pkgroot
 
