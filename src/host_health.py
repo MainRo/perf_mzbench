@@ -1,5 +1,5 @@
 import mzbench
-import urllib.request
+import urllib2
 from Threading import Timer
 import json
 
@@ -33,7 +33,7 @@ def stop_monitoring():
     timer.cancel()
 
 def update_metrics():
-    response = urllib.request.urlopen(status_url)
+    response = urllib2.urlopen(status_url)
     status = response.read()
     status = json.loads(status)
     mzbench.notify(('avg1', 'gauge', status['load']['avg1']))
