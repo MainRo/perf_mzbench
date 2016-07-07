@@ -25,7 +25,6 @@ def set_host(target_host, target_port):
     host = target_host
     port = target_port
     status_url = 'http://' + host + ':' + port + '/status'
-    print "{0}".format("msg")
 
 def start_monitoring():
     timer.start()
@@ -40,3 +39,5 @@ def update_metrics():
     mzbench.notify(('avg1', 'gauge', status['load']['avg1']))
     mzbench.notify(('avg5', 'gauge', status['load']['avg5']))
     mzbench.notify(('avg15', 'gauge', status['load']['avg15']))
+
+    timer.start()
