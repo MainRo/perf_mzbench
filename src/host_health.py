@@ -1,24 +1,42 @@
-import random
 import mzbench
+import urllib.request
+from Threading import Timer
+import json
+
+host = 'localhost'
+port = '4242'
+status_url = None
+timer = None
 
 def initial_state():
+    timer = Timer(5.0, update_metrics)
     pass
-
 
 def metrics():
     return [
         [
-            ('print', 'counter'),
-            ('print_2', 'counter')
-        ],
-        ('dummy', 'histogram')
+            ('avg1', 'gauge'),
+            ('avg5', 'gauge'),
+            ('avg11', 'gauge')
+        ]
     ]
 
+def set_host(target_host, target_port):
+    host = target_host
+    port = target_port
+    status_url = 'http://' + host + ':' + port + '/status'
+    print "{0}".format("msg")
 
-def my_print(msg):
-    mzbench.notify(('print', 'counter'), 1)
-    mzbench.notify(('print_2', 'counter'), 2)
+def start_monitoring():
+    timer.start()
 
-    print "{0}".format(msg)
+def stop_monitoring():
+    timer.cancel()
 
-    mzbench.notify(('dummy', 'histogram'), random.uniform(0, 1000000000)/7)
+def update_metrics():
+    response = urllib.request.urlopen(status_url)
+    status = response.read()
+    status = json.loads(status)
+    mzbench.notify(('avg1', 'gauge', status['load']['avg1']))
+    mzbench.notify(('avg5', 'gauge', status['load']['avg5']))
+    mzbench.notify(('avg15', 'gauge', status['load']['avg15']))
