@@ -12,17 +12,17 @@ def metrics():
             ('avg1', 'gauge'),
             ('avg5', 'gauge'),
             ('avg15', 'gauge')
-        ]
+        ],
         [
-            ('usr' : 'gauge'),
-            ('nice' : 'gauge'),
-            ('sys' : 'gauge'),
-            ('iowait' : 'gauge'),
-            ('irq' : 'gauge'),
-            ('soft' : 'gauge'),
-            ('steal' : 'gauge'),
-            ('guest' : 'gauge'),
-            ('gnice' : 'gauge')
+            ('usr', 'gauge'),
+            ('nice', 'gauge'),
+            ('sys', 'gauge'),
+            ('iowait', 'gauge'),
+            ('irq', 'gauge'),
+            ('soft', 'gauge'),
+            ('steal', 'gauge'),
+            ('guest', 'gauge'),
+            ('gnice', 'gauge')
         ]
     ]
 
