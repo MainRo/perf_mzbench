@@ -22,7 +22,8 @@ def metrics():
             ('soft', 'gauge'),
             ('steal', 'gauge'),
             ('guest', 'gauge'),
-            ('gnice', 'gauge')
+            ('gnice', 'gauge'),
+            ('all', 'gauge')
         ]
     ]
 
@@ -44,3 +45,4 @@ def get_perf_metrics(host, port):
     mzbench.notify(('steal', 'gauge'), status['cpu']['steal'])
     mzbench.notify(('guest', 'gauge'), status['cpu']['guest'])
     mzbench.notify(('gnice', 'gauge'), status['cpu']['gnice'])
+    mzbench.notify(('all', 'gauge'), status['cpu']['all'])
