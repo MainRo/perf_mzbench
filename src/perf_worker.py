@@ -9,7 +9,6 @@ status_url = None
 timer = None
 
 def initial_state():
-    timer = Timer(5.0, update_metrics)
     pass
 
 def metrics():
@@ -27,6 +26,7 @@ def set_host(target_host, target_port):
     status_url = 'http://' + host + ':' + str(port) + '/status'
 
 def start_monitoring():
+    timer = Timer(5.0, update_metrics)
     timer.start()
 
 def stop_monitoring():
