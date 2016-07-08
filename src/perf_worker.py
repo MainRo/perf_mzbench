@@ -11,7 +11,7 @@ def metrics():
         [
             ('avg1', 'gauge'),
             ('avg5', 'gauge'),
-            ('avg11', 'gauge')
+            ('avg15', 'gauge')
         ]
     ]
 
