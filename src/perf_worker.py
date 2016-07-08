@@ -1,6 +1,6 @@
 import mzbench
 import urllib2
-from Threading import Timer
+from threading import Timer
 import json
 
 host = 'localhost'
