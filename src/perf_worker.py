@@ -24,7 +24,7 @@ def metrics():
 def set_host(target_host, target_port):
     host = target_host
     port = target_port
-    status_url = 'http://' + host + ':' + port + '/status'
+    status_url = 'http://' + host + ':' + str(port) + '/status'
 
 def start_monitoring():
     timer.start()
