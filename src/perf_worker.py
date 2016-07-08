@@ -33,6 +33,7 @@ def stop_monitoring():
     timer.cancel()
 
 def update_metrics():
+    print("retrieve metrics from " + status_url)
     response = urllib2.urlopen(status_url)
     status = response.read()
     status = json.loads(status)
