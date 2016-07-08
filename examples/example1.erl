@@ -6,8 +6,8 @@
         {worker_type, perf_worker, python}
     ],
         [{loop,
-            [{time, {30, sec}}, % execution time 120 seconds
-                {rate, {10, rpm}}],
-           [{get_perf_metrics, {"localhost", 4242}}]}]
+            [{time, {30, sec}},
+                {rate, {12, rpm}}],
+           [{get_perf_metrics, "localhost", 4242}]}]
     }
 ].
